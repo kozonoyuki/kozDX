@@ -1,8 +1,8 @@
 /**
- * @file   VertexShader.h
- * @brief  頂点シェーダをラップ
- * @author kozonoyuki
- * @date   11/29に書き始め
+* @file   PixelShader.h
+* @brief  ピクセルシェーダをラップ
+* @author kozonoyuki
+* @date   11/29に書き始め
 */
 
 #pragma once
@@ -15,15 +15,15 @@
 namespace koz
 {
 	/**
-	 * @brief 頂点シェーダのラッパクラス
+	 * @brief ピクセルシェーダのラッパクラス
 	*/
-	class VertexShader
+	class PixelShader
 	{
 	private:
 		/**
-		 * 頂点シェーダのスマポ
+		 * ピクセルシェーダのスマポ
 		*/
-		CComPtr<ID3D11VertexShader> m_VertexShader;
+		CComPtr<ID3D11PixelShader> m_PixelShader;
 
 		/**
 		 * エントリー名
@@ -39,20 +39,20 @@ namespace koz
 		/**
 		 * コンストラクタ
 		*/
-		VertexShader();
+		PixelShader();
 
 		/**
 		 * デストラクタ
 		*/
-		~VertexShader();
+		~PixelShader();
 
 		/**
-		 * 頂点シェーダを作成する
+		 * ピクセルシェーダを作成する
 		 * @param pDevice デバイス
 		 * @param ShaderPath シェーダのパス
 		 * @return 結果
 		*/
-		HRESULT CreateVertexShader(ID3D11Device* pDevice, std::string ShaderPath);
+		HRESULT CreatePixelShader(ID3D11Device* pDevice, std::string ShaderPath);
 
 		/**
 		 * エントリポイント設定
@@ -67,9 +67,9 @@ namespace koz
 		void SetShaderVersion(std::string ShaderVersion);
 
 		/**
-		 * 頂点シェーダのポインタを返却する
-		 * @return 頂点シェーダのポインタ
+		 * ピクセルシェーダのポインタを返却する
+		 * @return ピクセルシェーダのポインタ
 		*/
-		ID3D11VertexShader* GetPtr();
+		ID3D11PixelShader* GetPtr();
 	};
 }

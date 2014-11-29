@@ -1,3 +1,10 @@
+/**
+* @file   VertexShader.cpp
+* @brief  頂点シェーダをラップ
+* @author kozonoyuki
+* @date   11/29に書き始め
+*/
+
 #include "VertexShader.h"
 
 koz::VertexShader::VertexShader()
@@ -32,6 +39,7 @@ HRESULT koz::VertexShader::CreateVertexShader(ID3D11Device* pDevice, std::string
 	m_VertexShader.Attach(pVertexShader);
 	return hr;
 }
+
 void koz::VertexShader::SetEntryName(std::string EntryName)
 {
 	m_EntryName = EntryName;
