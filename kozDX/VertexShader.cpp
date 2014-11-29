@@ -5,6 +5,7 @@
 * @date   11/29Ç…èëÇ´énÇﬂ
 */
 
+#include "stdafx.h"
 #include "VertexShader.h"
 
 koz::VertexShader::VertexShader()
@@ -19,7 +20,7 @@ koz::VertexShader::~VertexShader()
 
 }
 
-HRESULT koz::VertexShader::CreateVertexShader(ID3D11Device* pDevice, std::string ShaderPath)
+HRESULT koz::VertexShader::CreateVertexShader(CComPtr<ID3D11Device> pDevice, std::string ShaderPath)
 {
 	HRESULT hr = S_OK;
 	ID3D11VertexShader* pVertexShader = nullptr;
@@ -50,7 +51,7 @@ void koz::VertexShader::SetShaderVersion(std::string ShaderVersion)
 	m_ShaderVersion = ShaderVersion;
 }
 
-ID3D11VertexShader* koz::VertexShader::GetPtr()
+CComPtr<ID3D11VertexShader> koz::VertexShader::GetPtr()
 {
 	return m_VertexShader;
 }

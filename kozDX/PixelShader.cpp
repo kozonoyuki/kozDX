@@ -5,6 +5,7 @@
 * @date   11/29Ç…èëÇ´énÇﬂ
 */
 
+#include "stdafx.h"
 #include "PixelShader.h"
 
 koz::PixelShader::PixelShader()
@@ -19,7 +20,7 @@ koz::PixelShader::~PixelShader()
 
 }
 
-HRESULT koz::PixelShader::CreatePixelShader(ID3D11Device* pDevice, std::string ShaderPath)
+HRESULT koz::PixelShader::CreatePixelShader(CComPtr<ID3D11Device> pDevice, std::string ShaderPath)
 {
 	HRESULT hr = S_OK;
 	ID3D11PixelShader* pPixelShader = nullptr;
@@ -50,7 +51,7 @@ void koz::PixelShader::SetShaderVersion(std::string ShaderVersion)
 	m_ShaderVersion = ShaderVersion;
 }
 
-ID3D11PixelShader* koz::PixelShader::GetPtr()
+CComPtr<ID3D11PixelShader> koz::PixelShader::GetPtr()
 {
 	return m_PixelShader;
 }

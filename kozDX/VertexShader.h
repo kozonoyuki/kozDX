@@ -52,7 +52,7 @@ namespace koz
 		 * @param ShaderPath シェーダのパス
 		 * @return 結果
 		*/
-		HRESULT CreateVertexShader(ID3D11Device* pDevice, std::string ShaderPath);
+		HRESULT CreateVertexShader(CComPtr<ID3D11Device> pDevice, std::string ShaderPath);
 
 		/**
 		 * エントリポイント設定
@@ -70,6 +70,6 @@ namespace koz
 		 * 頂点シェーダのポインタを返却する
 		 * @return 頂点シェーダのポインタ
 		*/
-		ID3D11VertexShader* GetPtr();
+		CComPtr<ID3D11VertexShader> GetPtr();
 	};
 }
