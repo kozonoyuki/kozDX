@@ -33,6 +33,7 @@ HRESULT koz::RasterizerState::Create(
 	)
 {
 	HRESULT hr = S_OK;
+	ID3D11RasterizerState *pRasterizerState = nullptr;
 	m_RasterizerDesc.FillMode = FillMode;
 	m_RasterizerDesc.CullMode = CullMode;
 	m_RasterizerDesc.FrontCounterClockwise = FrontCounterClockwise;
@@ -43,12 +44,13 @@ HRESULT koz::RasterizerState::Create(
 	m_RasterizerDesc.ScissorEnable = ScissorEnable;
 	m_RasterizerDesc.MultisampleEnable = MultisampleEnable;
 	m_RasterizerDesc.AntialiasedLineEnable = AnitialiasedLineEnable;
-	hr = pDevice->CreateRasterizerState(&m_RasterizerDesc, &m_RasterizerState);
+	hr = pDevice->CreateRasterizerState(&m_RasterizerDesc, &pRasterizerState);
 	if (FAILED(hr))
 	{
 		MessageBox(nullptr, L"ラスタライザステートを作成できませんでした。", L"Error", MB_OK);
 		return hr;
 	}
+	m_RasterizerState.Attach(pRasterizerState);
 	return hr;
 }
 
