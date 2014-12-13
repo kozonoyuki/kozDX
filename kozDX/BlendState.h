@@ -31,7 +31,7 @@ namespace koz
 		/**
 		* レンダーターゲット番号
 		*/
-		unsigned char m_RenderTargetNumber;
+		unsigned int m_RenderTargetNumber;
 
 	public:
 		/**

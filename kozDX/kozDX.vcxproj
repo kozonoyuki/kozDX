@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BlendState.h" />
+    <ClInclude Include="DepthStencilState.h" />
     <ClInclude Include="PixelShader.h" />
     <ClInclude Include="RasterizerState.h" />
     <ClInclude Include="Utility.h" />
@@ -87,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BlendState.cpp" />
+    <ClCompile Include="DepthStencilState.cpp" />
     <ClCompile Include="PixelShader.cpp" />
     <ClCompile Include="RasterizerState.cpp" />
     <ClCompile Include="VertexShader.cpp" />
