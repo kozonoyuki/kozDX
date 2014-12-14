@@ -20,7 +20,7 @@ koz::PixelShader::~PixelShader()
 
 }
 
-HRESULT koz::PixelShader::CreatePixelShader(CComPtr<ID3D11Device> pDevice, std::string ShaderPath)
+HRESULT koz::PixelShader::Create(CComPtr<ID3D11Device> pDevice, std::string ShaderPath)
 {
 	HRESULT hr = S_OK;
 	ID3D11PixelShader* pPixelShader = nullptr;
@@ -51,7 +51,7 @@ void koz::PixelShader::SetShaderVersion(std::string ShaderVersion)
 	m_ShaderVersion = ShaderVersion;
 }
 
-CComPtr<ID3D11PixelShader> koz::PixelShader::GetPtr()
+void koz::PixelShader::Set(CComPtr<ID3D11DeviceContext> pDeviceContext)
 {
-	return m_PixelShader;
+	pDeviceContext->PSSetShader(m_PixelShader, nullptr, 0);
 }

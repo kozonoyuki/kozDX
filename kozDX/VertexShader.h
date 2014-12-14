@@ -56,7 +56,7 @@ namespace koz
 		 * @param LayoutSize レイアウトサイズ
 		 * @return 結果
 		*/
-		HRESULT CreateVertexShader(CComPtr<ID3D11Device> pDevice, std::string ShaderPath, D3D11_INPUT_ELEMENT_DESC* pLayout, UINT LayoutSize);
+		HRESULT Create(CComPtr<ID3D11Device> pDevice, std::string ShaderPath, D3D11_INPUT_ELEMENT_DESC* pLayout, UINT LayoutSize);
 
 		/**
 		 * エントリポイント設定
@@ -71,9 +71,11 @@ namespace koz
 		void SetShaderVersion(std::string ShaderVersion);
 
 		/**
-		 * 頂点シェーダのポインタを返却する
-		 * @return 頂点シェーダのポインタ
+		 * 頂点シェーダをセットする
+		 * @param pDeviceContext デバコン
 		*/
-		CComPtr<ID3D11VertexShader> GetPtr();
+		void Set(CComPtr<ID3D11DeviceContext> pDeviceContext);
+
+
 	};
 }

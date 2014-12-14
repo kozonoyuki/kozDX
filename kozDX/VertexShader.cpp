@@ -20,7 +20,7 @@ koz::VertexShader::~VertexShader()
 
 }
 
-HRESULT koz::VertexShader::CreateVertexShader(CComPtr<ID3D11Device> pDevice, std::string ShaderPath, D3D11_INPUT_ELEMENT_DESC* pLayout, UINT LayoutSize)
+HRESULT koz::VertexShader::Create(CComPtr<ID3D11Device> pDevice, std::string ShaderPath, D3D11_INPUT_ELEMENT_DESC* pLayout, UINT LayoutSize)
 {
 	HRESULT hr = S_OK;
 	ID3D11VertexShader* pVertexShader = nullptr;
@@ -60,7 +60,7 @@ void koz::VertexShader::SetShaderVersion(std::string ShaderVersion)
 	m_ShaderVersion = ShaderVersion;
 }
 
-CComPtr<ID3D11VertexShader> koz::VertexShader::GetPtr()
+void koz::VertexShader::Set(CComPtr<ID3D11DeviceContext> pDeviceContext)
 {
-	return m_VertexShader;
+	pDeviceContext->VSSetShader(m_VertexShader, nullptr, 0);
 }

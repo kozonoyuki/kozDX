@@ -52,7 +52,7 @@ namespace koz
 		 * @param ShaderPath シェーダのパス
 		 * @return 結果
 		*/
-		HRESULT CreatePixelShader(CComPtr<ID3D11Device> pDevice, std::string ShaderPath);
+		HRESULT Create(CComPtr<ID3D11Device> pDevice, std::string ShaderPath);
 
 		/**
 		 * エントリポイント設定
@@ -67,9 +67,9 @@ namespace koz
 		void SetShaderVersion(std::string ShaderVersion);
 
 		/**
-		 * ピクセルシェーダのポインタを返却する
-		 * @return ピクセルシェーダのポインタ
+		 * ピクセルシェーダをセットする
+		 * @param pDeviceContext デバコン
 		*/
-		CComPtr<ID3D11PixelShader> GetPtr();
+		void Set(CComPtr<ID3D11DeviceContext> pDeviceContext);
 	};
 }
