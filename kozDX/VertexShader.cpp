@@ -20,11 +20,12 @@ koz::VertexShader::~VertexShader()
 
 }
 
-HRESULT koz::VertexShader::CreateVertexShader(CComPtr<ID3D11Device> pDevice, std::string ShaderPath)
+HRESULT koz::VertexShader::CreateVertexShader(CComPtr<ID3D11Device> pDevice, std::string ShaderPath, D3D11_INPUT_ELEMENT_DESC* pLayout, UINT LayoutSize)
 {
 	HRESULT hr = S_OK;
 	ID3D11VertexShader* pVertexShader = nullptr;
 	ID3DBlob* pBlob = nullptr;
+	ID3D11InputLayout* pInputLayout = nullptr;
 	hr = CompileShaderFromFile(StringToWcstring(ShaderPath), m_EntryName.c_str(), m_ShaderVersion.c_str(), &pBlob);
 	if (FAILED(hr))
 	{
@@ -37,7 +38,15 @@ HRESULT koz::VertexShader::CreateVertexShader(CComPtr<ID3D11Device> pDevice, std
 		MessageBox(nullptr, L"頂点シェーダを作成することができませんでした。", L"Error", MB_OK);
 		return hr;
 	}
+	hr = pDevice->CreateInputLayout(pLayout, LayoutSize, pBlob->GetBufferPointer(),
+		pBlob->GetBufferSize(), &pInputLayout);
+	if (FAILED(hr))
+	{
+		MessageBox(nullptr, L"インプットレイアウトを作成することができませんでした。", L"Error", MB_OK);
+		return hr;
+	}
 	m_VertexShader.Attach(pVertexShader);
+	pBlob->Release();
 	return hr;
 }
 

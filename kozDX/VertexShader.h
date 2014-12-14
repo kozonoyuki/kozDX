@@ -25,6 +25,8 @@ namespace koz
 		*/
 		CComPtr<ID3D11VertexShader> m_VertexShader;
 
+		CComPtr<ID3D11InputLayout> m_InputLayout;
+
 		/**
 		 * エントリー名
 		*/
@@ -50,9 +52,11 @@ namespace koz
 		 * 頂点シェーダを作成する
 		 * @param pDevice デバイス
 		 * @param ShaderPath シェーダのパス
+		 * @param pLayout インプットレイアウト
+		 * @param LayoutSize レイアウトサイズ
 		 * @return 結果
 		*/
-		HRESULT CreateVertexShader(CComPtr<ID3D11Device> pDevice, std::string ShaderPath);
+		HRESULT CreateVertexShader(CComPtr<ID3D11Device> pDevice, std::string ShaderPath, D3D11_INPUT_ELEMENT_DESC* pLayout, UINT LayoutSize);
 
 		/**
 		 * エントリポイント設定
