@@ -79,8 +79,11 @@
   <ItemGroup>
     <ClInclude Include="BlendState.h" />
     <ClInclude Include="DepthStencilState.h" />
+    <ClInclude Include="DynamicObject.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="PixelShader.h" />
     <ClInclude Include="RasterizerState.h" />
+    <ClInclude Include="StaticObject.h" />
     <ClInclude Include="Utility.h" />
     <ClInclude Include="VertexShader.h" />
     <ClInclude Include="stdafx.h" />
