@@ -15,19 +15,34 @@ namespace koz
 	* @brief 動的オブジェクトクラス<br>
 	*        動的に動作するオブジェクトに必要なものを定義
 	*/
-	class DynamicObject : public Object
+	class DynamicObject : protected Object
 	{
-	private:
-
 	public:
+		/**
+		* 動的コンスタントバッファ。変化が激しいデータを格納。Posなど
+		*/
+		CComPtr<ID3D11Buffer> m_DynamicConstantBuffer;
+
+		/**
+		* アニメーションに用いるコンスタントバッファ
+		*/
+		CComPtr<ID3D11Buffer> m_AnimationConstantBuffer;
+
 		/**
 		* コンストラクタ
 		*/
-		DynamicObject();
+		DynamicObject()
+		{
+
+		}
 
 		/**
 		* デストラクタ
 		*/
-		~DynamicObject();
+		~DynamicObject()
+		{
+
+		}
+
 	};
 }

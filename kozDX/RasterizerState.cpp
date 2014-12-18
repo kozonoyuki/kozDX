@@ -1,5 +1,5 @@
 /**
-* @file   RasterizerState.h
+* @file   RasterizerState.cpp
 * @brief  ラスタライザ設定用クラス
 * @author kozonoyuki
 * @date   11/29に書き始め

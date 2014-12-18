@@ -15,11 +15,14 @@ namespace koz
 	* @brief 静的オブジェクトクラス<br>
 	*        静的に動作するオブジェクトに必要なものを定義
 	*/
-	class StaticObject : public Object
+	class StaticObject : protected Object
 	{
-	private:
-
 	public:
+		/**
+		* 作成した後一度も変更しないコンスタントバッファ
+		*/
+		CComPtr<ID3D11Buffer> m_StaticConstantBuffer;
+
 		/**
 		* コンストラクタ
 		*/
@@ -29,5 +32,6 @@ namespace koz
 		* デストラクタ
 		*/
 		~StaticObject();
+
 	};
 }

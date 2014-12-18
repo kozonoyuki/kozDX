@@ -79,6 +79,7 @@
   <ItemGroup>
     <ClInclude Include="BlendState.h" />
     <ClInclude Include="DepthStencilState.h" />
+    <ClInclude Include="DynamicModel.h" />
     <ClInclude Include="DynamicObject.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="PixelShader.h" />
@@ -92,6 +93,7 @@
   <ItemGroup>
     <ClCompile Include="BlendState.cpp" />
     <ClCompile Include="DepthStencilState.cpp" />
+    <ClCompile Include="DynamicModel.cpp" />
     <ClCompile Include="PixelShader.cpp" />
     <ClCompile Include="RasterizerState.cpp" />
     <ClCompile Include="VertexShader.cpp" />

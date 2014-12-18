@@ -1,5 +1,5 @@
 /**
-* @file   DepthStencilState.h
+* @file   DepthStencilState.cpp
 * @brief  深度ステンシル設定用クラス
 * @author kozonoyuki
 * @date   12/13に書き始め

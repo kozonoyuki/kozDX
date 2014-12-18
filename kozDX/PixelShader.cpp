@@ -1,5 +1,5 @@
 /**
-* @file   PixelShader.h
+* @file   PixelShader.cpp
 * @brief  ピクセルシェーダをラップ
 * @author kozonoyuki
 * @date   11/29に書き始め

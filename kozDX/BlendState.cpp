@@ -1,5 +1,5 @@
 /**
-* @file   BlendState.h
+* @file   BlendState.cpp
 * @brief  ブレンドステート設定用クラス
 * @author kozonoyuki
 * @date   12/13に書き始め

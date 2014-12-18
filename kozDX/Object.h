@@ -7,7 +7,8 @@
 
 #pragma once
 
-#include <vector>
+#include <d3d11_1.h>
+#include <atlbase.h>
 
 namespace koz
 {
@@ -17,17 +18,39 @@ namespace koz
 	*/
 	class Object
 	{
-	private:
-
 	public:
+		/**
+		* 頂点バッファ
+		*/
+		CComPtr<ID3D11Buffer> m_VertexBuffer;
+
+		/**
+		* インデックスバッファ
+		*/
+		CComPtr<ID3D11Buffer> m_IndexBuffer;
+
+		/**
+		* WorldViewProjection コンスタントバッファ
+		*/
+		CComPtr<ID3D11Buffer> m_WVPConstantBuffer;
+
 		/**
 		* コンストラクタ
 		*/
-		Object();
+		Object() {
+
+		}
 
 		/**
 		* デストラクタ
 		*/
-		~Object();
+		~Object() {
+
+		}
+
+		/**
+		* バッファをセットし、描画まで行う
+		*/
+		virtual void Draw() = 0;
 	};
 }
