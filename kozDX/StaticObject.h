@@ -17,6 +17,17 @@ namespace koz
 	*/
 	class StaticObject : public Object
 	{
+	private:
 
+	public:
+		/**
+		* コンストラクタ
+		*/
+		StaticObject();
+
+		/**
+		* デストラクタ
+		*/
+		~StaticObject();
 	};
 }

@@ -17,6 +17,17 @@ namespace koz
 	*/
 	class DynamicObject : public Object
 	{
+	private:
 
+	public:
+		/**
+		* コンストラクタ
+		*/
+		DynamicObject();
+
+		/**
+		* デストラクタ
+		*/
+		~DynamicObject();
 	};
 }

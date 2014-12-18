@@ -7,6 +7,8 @@
 
 #pragma once
 
+#include <vector>
+
 namespace koz
 {
 	/**
@@ -15,6 +17,17 @@ namespace koz
 	*/
 	class Object
 	{
+	private:
 
+	public:
+		/**
+		* コンストラクタ
+		*/
+		Object();
+
+		/**
+		* デストラクタ
+		*/
+		~Object();
 	};
 }
