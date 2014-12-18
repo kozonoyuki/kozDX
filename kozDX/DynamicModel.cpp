@@ -18,6 +18,11 @@ koz::DynamicModel::~DynamicModel()
 
 }
 
+koz::DynamicModel::DynamicModel(CComPtr<ID3D11Device> pDevice, std::string filename)
+{
+
+}
+
 void koz::DynamicModel::Draw()
 {
 
