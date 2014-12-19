@@ -7,11 +7,25 @@
 
 #pragma once
 
+#include "ConstantBuffer.h"
 #include <d3d11_1.h>
 #include <atlbase.h>
+#include <memory>
+#include <DirectXMath.h>
 
 namespace koz
 {
+	/**
+	* @brief WVPコンスタントバッファの用構造体
+	*/
+	struct DescWVP
+	{
+	public:
+		DirectX::XMMATRIX World;
+		DirectX::XMMATRIX View;
+		DirectX::XMMATRIX Projection;
+	};
+
 	/**
 	* @brief オブジェクトを構成する抽象クラス<br>
 	*        オブジェクト描画に最低限必要なメンバ・メソッドを定義する
@@ -32,7 +46,7 @@ namespace koz
 		/**
 		* WorldViewProjection コンスタントバッファ
 		*/
-		CComPtr<ID3D11Buffer> m_WVPConstantBuffer;
+		std::shared_ptr<ConstantBuffer<DescWVP>> m_WVPConstantBuffer;
 
 		/**
 		* コンストラクタ

@@ -12,6 +12,17 @@
 namespace koz
 {
 	/**
+	* @brief 静的コンスタントバッファ構造体
+	*/
+	struct DescStatic
+	{
+	public:
+		DirectX::XMMATRIX Position;
+		DirectX::XMMATRIX Rotation;
+		DirectX::XMMATRIX Scale;
+	};
+
+	/**
 	* @brief 静的オブジェクトクラス<br>
 	*        静的に動作するオブジェクトに必要なものを定義
 	*/
@@ -21,7 +32,7 @@ namespace koz
 		/**
 		* 作成した後一度も変更しないコンスタントバッファ
 		*/
-		CComPtr<ID3D11Buffer> m_StaticConstantBuffer;
+		std::shared_ptr<ConstantBuffer<DescStatic>> m_StaticConstantBuffer;
 
 		/**
 		* コンストラクタ
