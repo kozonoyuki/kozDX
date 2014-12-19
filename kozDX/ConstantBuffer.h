@@ -47,19 +47,24 @@ namespace koz
 		~ConstantBuffer();
 
 		/**
-		* データを頂点シェーダにセットする
+		* データを更新する
 		* @param pDeviceContext デバコン
 		* @param pConstantBuffer データ
-		* @param Slot スロット番号
 		*/
-		void SetVertexShader(CComPtr<ID3D11DeviceContext> pDeviceContext, T * pConstantBuffer, UINT Slot);
+		void Update(CComPtr<ID3D11DeviceContext> pDeviceContext, T * pConstantBuffer);
 
 		/**
-		* データをピクセルシェーダにセットする
+		* 頂点シェーダにセットする
 		* @param pDeviceContext デバコン
-		* @param pConstantBuffer データ
 		* @param Slot スロット番号
 		*/
-		void SetPixelShader(CComPtr<ID3D11DeviceContext> pDeviceContext, T * pConstantBuffer, UINT Slot);
+		void SetVertexShader(CComPtr<ID3D11DeviceContext> pDeviceContext, UINT Slot);
+
+		/**
+		* ピクセルシェーダにセットする
+		* @param pDeviceContext デバコン
+		* @param Slot スロット番号
+		*/
+		void SetPixelShader(CComPtr<ID3D11DeviceContext> pDeviceContext, UINT Slot);
 	};
 }

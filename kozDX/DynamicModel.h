@@ -19,6 +19,7 @@ namespace koz
 	{
 	private:
 
+
 	public:
 		/**
 		* コンストラクタ

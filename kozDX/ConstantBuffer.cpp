@@ -37,15 +37,19 @@ koz::ConstantBuffer<T>::~ConstantBuffer()
 }
 
 template <typename T>
-void koz::ConstantBuffer<T>::SetVertexShader(CComPtr<ID3D11DeviceContext> pDeviceContext, T * pConstantBuffer, UINT Slot)
+void koz::ConstantBuffer<T>::Update(CComPtr<ID3D11DeviceContext> pDeviceContext, T * pConstantBuffer)
 {
 	pDeviceContext->UpdateSubresource(m_ConstantBuffer, 0, nullptr, &pConstantBuffer, 0, 0);
+}
+
+template <typename T>
+void koz::ConstantBuffer<T>::SetVertexShader(CComPtr<ID3D11DeviceContext> pDeviceContext, UINT Slot)
+{
 	pDeviceContext->VSSetConstantBuffers(Slot, 1, &m_ConstantBuffer);
 }
 
 template <typename T>
-void koz::ConstantBuffer<T>::SetPixelShader(CComPtr<ID3D11DeviceContext> pDeviceContext, T * pConstantBuffer, UINT Slot)
+void koz::ConstantBuffer<T>::SetPixelShader(CComPtr<ID3D11DeviceContext> pDeviceContext, UINT Slot)
 {
-	pDeviceContext->UpdateSubresource(m_ConstantBuffer, 0, nullptr, &pConstantBuffer, 0, 0);
 	pDeviceContext->PSSetConstantBuffers(Slot, 1, &m_ConstantBuffer);
 }
