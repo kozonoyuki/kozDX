@@ -12,6 +12,7 @@
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
 #include "Texture.h"
+#include "SamplerState.h"
 #include <string>
 
 namespace koz
@@ -39,6 +40,8 @@ namespace koz
 		*/
 		class DynamicMesh
 		{
+		private:
+			DynamicMesh();
 		public:
 			unsigned int m_VertexesCount;
 			unsigned int m_IndexesCount;
@@ -50,9 +53,12 @@ namespace koz
 			std::shared_ptr<VertexBuffer<DynamicVertex>> m_VertexBuffer;
 			std::shared_ptr<IndexBuffer<WORD>> m_IndexBuffer;
 			std::shared_ptr<Texture> m_Texture;
+			std::shared_ptr<SamplerState> m_SamplerState;
 
-			void Create(CComPtr<ID3D11Device> pDevice, unsigned int MeshNum, DynamicModel& pModel);
+			DynamicMesh(CComPtr<ID3D11Device> pDevice, unsigned int MeshNum, DynamicModel& pModel);
 			~DynamicMesh();
+
+			void Set(CComPtr<ID3D11DeviceContext> pDeviceContext);
 		};
 
 	private:

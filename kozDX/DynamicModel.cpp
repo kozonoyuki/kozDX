@@ -8,7 +8,9 @@
 #include "stdafx.h"
 #include "DynamicModel.h"
 
-void koz::DynamicModel::DynamicMesh::Create(CComPtr<ID3D11Device> pDevice, unsigned int MeshNum, DynamicModel& pModel)
+koz::DynamicModel::DynamicMesh::DynamicMesh() { }
+
+koz::DynamicModel::DynamicMesh::DynamicMesh(CComPtr<ID3D11Device> pDevice, unsigned int MeshNum, DynamicModel& pModel)
 {
 	auto diffusename = pModel.m_FbxLoader->GetMaterial(pModel.m_FbxLoader->GetMaterialId(pModel.m_FbxLoader->GetMesh(MeshNum).materialNameList[0])).diffuseTextureName;
 	auto slash_pos = diffusename.find_last_of('\\');
@@ -43,6 +45,21 @@ void koz::DynamicModel::DynamicMesh::Create(CComPtr<ID3D11Device> pDevice, unsig
 	this->m_VertexBuffer = std::make_shared<VertexBuffer<DynamicVertex>>(pDevice, this->m_MeshVertex, this->m_VertexesCount);
 	this->m_IndexBuffer = std::make_shared<IndexBuffer<WORD>>(pDevice, this->m_MeshIndex, this->m_IndexesCount);
 	this->m_Texture = std::make_shared<Texture>(pDevice, this->m_DiffuseTextureName);
+	this->m_SamplerState = std::make_shared<SamplerState>();
+	this->m_SamplerState->Create(pDevice,
+		D3D11_FILTER_ANISOTROPIC,
+		D3D11_TEXTURE_ADDRESS_WRAP,
+		D3D11_TEXTURE_ADDRESS_WRAP,
+		D3D11_TEXTURE_ADDRESS_WRAP,
+		0.0f,
+		2,
+		D3D11_COMPARISON_NEVER,
+		0.0f,
+		0.0f,
+		0.0f,
+		0.0f,
+		-D3D11_FLOAT32_MAX,
+		D3D11_FLOAT32_MAX);
 }
 
 koz::DynamicModel::DynamicMesh::~DynamicMesh()
@@ -51,15 +68,17 @@ koz::DynamicModel::DynamicMesh::~DynamicMesh()
 	delete[] this->m_MeshIndex;
 }
 
-koz::DynamicModel::DynamicModel()
+void koz::DynamicModel::DynamicMesh::Set(CComPtr<ID3D11DeviceContext> pDeviceContext)
 {
-	
+	this->m_VertexBuffer->Set(pDeviceContext);
+	this->m_IndexBuffer->Set(pDeviceContext);
+	this->m_Texture->Set(pDeviceContext, 0);
+	this->m_SamplerState->SetPS(pDeviceContext, 0);
 }
 
-koz::DynamicModel::~DynamicModel()
-{
+koz::DynamicModel::DynamicModel() { }
 
-}
+koz::DynamicModel::~DynamicModel() { }
 
 koz::DynamicModel::DynamicModel(CComPtr<ID3D11Device> pDevice, std::string filename)
 {
@@ -71,17 +90,16 @@ koz::DynamicModel::DynamicModel(CComPtr<ID3D11Device> pDevice, std::string filen
 	this->m_MeshSize = this->m_FbxLoader->GetMeshCount();
 	for (unsigned int i = 0; i < m_MeshSize; ++i)
 	{
-		
-		std::shared_ptr<DynamicMesh> dmesh = std::make_shared<DynamicMesh>();
-		dmesh->Create(pDevice, i, *this);
+		std::shared_ptr<DynamicMesh> dmesh = std::make_shared<DynamicMesh>(pDevice, i, *this);
 		this->m_MeshList.push_back(dmesh);
 	}
 }
 
-
 void koz::DynamicModel::Draw(CComPtr<ID3D11DeviceContext> pDeviceContext)
 {
-
+	for (unsigned int i = 0; i < this->m_MeshSize; ++i)
+	{
+		this->m_MeshList[i]->Set(pDeviceContext);
+		pDeviceContext->DrawIndexed(this->m_MeshList[i]->m_IndexesCount, 0, 0);
+	}
 }
-
-
