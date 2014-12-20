@@ -8,8 +8,7 @@
 #pragma once
 
 #include "ConstantBuffer.h"
-#include <d3d11_1.h>
-#include <atlbase.h>
+#include "Utility.h"
 #include <memory>
 #include <DirectXMath.h>
 
@@ -33,16 +32,6 @@ namespace koz
 	class Object
 	{
 	public:
-		/**
-		* 頂点バッファ
-		*/
-		CComPtr<ID3D11Buffer> m_VertexBuffer;
-
-		/**
-		* インデックスバッファ
-		*/
-		CComPtr<ID3D11Buffer> m_IndexBuffer;
-
 		/**
 		* WorldViewProjection コンスタントバッファ
 		*/

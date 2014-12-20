@@ -8,8 +8,6 @@
 #pragma once
 
 #include "Utility.h"
-#include <d3d11_1.h>
-#include <atlbase.h>
 #include <string>
 
 namespace koz
