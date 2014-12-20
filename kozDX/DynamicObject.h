@@ -70,5 +70,10 @@ namespace koz
 
 		}
 
+		/**
+		* バッファをセットし、描画まで行う
+		* @param pDeviceContext デバコン
+		*/
+		void Draw(CComPtr<ID3D11DeviceContext> pDeviceContext) = 0;
 	};
 }

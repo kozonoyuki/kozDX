@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kozDX", "kozDX\kozDX.vcxproj", "{0F7E790B-201C-4513-B684-92941488D92C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestProject", "TestProject\TestProject.vcxproj", "{3F98C75B-D451-48DC-A145-8EDB46FDF588}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{0F7E790B-201C-4513-B684-92941488D92C}.Debug|Win32.Build.0 = Debug|Win32
 		{0F7E790B-201C-4513-B684-92941488D92C}.Release|Win32.ActiveCfg = Release|Win32
 		{0F7E790B-201C-4513-B684-92941488D92C}.Release|Win32.Build.0 = Release|Win32
+		{3F98C75B-D451-48DC-A145-8EDB46FDF588}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3F98C75B-D451-48DC-A145-8EDB46FDF588}.Debug|Win32.Build.0 = Debug|Win32
+		{3F98C75B-D451-48DC-A145-8EDB46FDF588}.Release|Win32.ActiveCfg = Release|Win32
+		{3F98C75B-D451-48DC-A145-8EDB46FDF588}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
