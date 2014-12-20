@@ -54,6 +54,6 @@ namespace koz
 		/**
 		* バッファをセットし、描画まで行う
 		*/
-		virtual void Draw() = 0;
+		virtual void Draw(CComPtr<ID3D11DeviceContext> pDeviceContext) = 0;
 	};
 }

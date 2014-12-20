@@ -95,6 +95,7 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="PixelShader.h" />
     <ClInclude Include="RasterizerState.h" />
+    <ClInclude Include="SamplerState.h" />
     <ClInclude Include="StaticObject.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Utility.h" />
@@ -113,6 +114,7 @@
     <ClCompile Include="IndexBuffer.cpp" />
     <ClCompile Include="PixelShader.cpp" />
     <ClCompile Include="RasterizerState.cpp" />
+    <ClCompile Include="SamplerState.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="VertexBuffer.cpp" />
     <ClCompile Include="VertexShader.cpp" />
