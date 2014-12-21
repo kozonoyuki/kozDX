@@ -209,7 +209,7 @@ void GetWeight(FbxMesh* mesh, const std::vector<int>& indexList, std::vector<Mod
 		for (int j = 0; j < indexCount; ++j)
 		{
 			auto controlPointIndex = indices[j];
-			tmpBoneWeightList[controlPointIndex].push_back({ i, weights[j] });
+			tmpBoneWeightList[controlPointIndex].push_back({ i, (float)weights[j] });
 		}
 
 		auto baseposeMatrix = cluster->GetLink()->EvaluateGlobalTransform().Inverse();
@@ -535,7 +535,7 @@ ModelMaterial FBXLoader::ParseMaterial(FbxSurfaceMaterial* material)
 
 	printf(">> material: %s\n", modelMaterial.materialName.c_str());
 
-	auto SetMaterialFactorFunc = [&](static const char * materialLight, static const char* materialLightFactor) -> DirectX::XMFLOAT3
+	auto SetMaterialFactorFunc = [&](const char * materialLight, const char* materialLightFactor) -> DirectX::XMFLOAT3
 	{
 		FbxProperty property = material->FindProperty(materialLight);
 		FbxProperty propertyFactor = material->FindProperty(materialLightFactor);
@@ -555,7 +555,7 @@ ModelMaterial FBXLoader::ParseMaterial(FbxSurfaceMaterial* material)
 		return DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f);
 	};
 
-	auto SetMaterialFunc = [&](static const char * materialLight) -> const char*
+	auto SetMaterialFunc = [&](const char * materialLight) -> const char*
 	{
 		FbxProperty property = material->FindProperty(materialLight);
 		if (property.IsValid())

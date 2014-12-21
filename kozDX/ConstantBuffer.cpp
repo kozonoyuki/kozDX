@@ -9,9 +9,7 @@
 #include "ConstantBuffer.h"
 
 template <typename T>
-koz::ConstantBuffer<T>::ConstantBuffer()
-{
-}
+koz::ConstantBuffer<T>::ConstantBuffer() { }
 
 template <typename T>
 koz::ConstantBuffer<T>::ConstantBuffer(CComPtr<ID3D11Device> pDevice)
@@ -31,10 +29,7 @@ koz::ConstantBuffer<T>::ConstantBuffer(CComPtr<ID3D11Device> pDevice)
 }
 
 template <typename T>
-koz::ConstantBuffer<T>::~ConstantBuffer()
-{
-
-}
+koz::ConstantBuffer<T>::~ConstantBuffer() { }
 
 template <typename T>
 void koz::ConstantBuffer<T>::Update(CComPtr<ID3D11DeviceContext> pDeviceContext, T * pConstantBuffer)

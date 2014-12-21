@@ -7,10 +7,8 @@
 
 #pragma once
 
+#include "stdafx.h"
 #include "ConstantBuffer.h"
-#include "Utility.h"
-#include <memory>
-#include <DirectXMath.h>
 
 namespace koz
 {

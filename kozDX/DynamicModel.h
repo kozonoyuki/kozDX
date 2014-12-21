@@ -13,7 +13,6 @@
 #include "IndexBuffer.h"
 #include "Texture.h"
 #include "SamplerState.h"
-#include <string>
 
 namespace koz
 {

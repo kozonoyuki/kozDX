@@ -8,7 +8,6 @@
 #pragma once
 
 #include "Utility.h"
-#include <string>
 
 namespace koz
 {

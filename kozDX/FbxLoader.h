@@ -14,7 +14,6 @@
 
 #include <iostream>
 #include <fbxsdk.h>
-#include <DirectXMath.h>
 #include <vector>
 #include <map>
 #include <algorithm>

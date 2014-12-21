@@ -1,11 +1,11 @@
 #include <Windows.h>
 #include <atlbase.h>
 #include <d3d11_1.h>
-#include <string>
-#include <tchar.h>
-#include <stdlib.h>
+#include <memory>
+#include "../kozDX/DynamicModel.h"
 
 #pragma comment(lib, "d3d11.lib")
+#pragma comment(lib, "kozDX.lib")
 
 
 static TCHAR szWindowClass[] = _T("win32app");
@@ -140,6 +140,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	pDevice.Attach(m_pd3dDevice);
 	pDeviceContext.Attach(m_pd3dDeviceContext);
 	pSwapChain.Attach(m_pSwapChain);
+
+	//std::shared_ptr<koz::Texture> tex = std::make_shared<koz::Texture>(pDevice, "C:\\Users\\Yuki\\Documents\\Visual Studio 2013\\Projects\\kozDX\\TestProject\\ceil.dds");
 	/**************************************************************************/
 	MSG msg;
 	while (GetMessage(&msg, NULL, 0, 0))
