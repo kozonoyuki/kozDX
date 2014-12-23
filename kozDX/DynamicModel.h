@@ -52,7 +52,7 @@ namespace koz
 		};
 
 	private: 
-		FBXLoader* m_FbxLoader;
+		std::shared_ptr<FBXLoader> m_FbxLoader;
 		unsigned int m_MeshSize;
 		std::vector<std::shared_ptr<DynamicMesh>> m_MeshList;
 

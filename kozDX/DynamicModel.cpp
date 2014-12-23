@@ -85,7 +85,7 @@ koz::DynamicModel::DynamicModel(CComPtr<ID3D11Device> pDevice, std::string filen
 	this->m_WVPConstantBuffer = std::make_shared<ConstantBuffer<DescWVP>>(pDevice);
 	this->m_DynamicConstantBuffer = std::make_shared<ConstantBuffer<DescDynamic>>(pDevice);
 	this->m_AnimationConstantBuffer = std::make_shared<ConstantBuffer<DescAnimation>>(pDevice);
-
+	this->m_FbxLoader = std::make_shared<FBXLoader>();
 	this->m_FbxLoader->Initialize(filename.c_str());
 	this->m_MeshSize = this->m_FbxLoader->GetMeshCount();
 	for (unsigned int i = 0; i < m_MeshSize; ++i)
