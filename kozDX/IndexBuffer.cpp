@@ -8,12 +8,12 @@
 #include "stdafx.h"
 #include "IndexBuffer.h"
 
-template <typename T>
+template <class T>
 koz::IndexBuffer<T>::IndexBuffer()
 {
 }
 
-template <typename T>
+template <class T>
 koz::IndexBuffer<T>::IndexBuffer(CComPtr<ID3D11Device> pDevice, T * pIndex, unsigned int Size)
 {
 	ID3D11Buffer *pIndexBuffer = nullptr;
@@ -33,20 +33,23 @@ koz::IndexBuffer<T>::IndexBuffer(CComPtr<ID3D11Device> pDevice, T * pIndex, unsi
 	this->m_IndexBuffer.Attach(pIndexBuffer);
 }
 
-template <typename T>
+template <class T>
 koz::IndexBuffer<T>::~IndexBuffer()
 {
 
 }
 
-template <typename T>
+template <class T>
 void koz::IndexBuffer<T>::Update(CComPtr<ID3D11DeviceContext> pDeviceContext, T * pIndexBuffer)
 {
 	pDeviceContext->UpdateSubresource(this->m_IndexBuffer, 0, nullptr, &pIndexBuffer, 0, 0);
 }
 
-template <typename T>
+template <class T>
 void koz::IndexBuffer<T>::Set(CComPtr<ID3D11DeviceContext> pDeviceContext)
 {
 	pDeviceContext->IASetIndexBuffer(this->m_IndexBuffer, DXGI_FORMAT_R16_UINT, 0);
 }
+
+// ƒŠƒ“ƒN—p’è‹`
+template class koz::IndexBuffer < WORD > ;

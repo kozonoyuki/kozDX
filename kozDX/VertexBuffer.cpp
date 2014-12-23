@@ -7,13 +7,14 @@
 
 #include "stdafx.h"
 #include "VertexBuffer.h"
+#include "Description.h"
 
-template <typename T>
+template <class T>
 koz::VertexBuffer<T>::VertexBuffer()
 {
 }
 
-template <typename T>
+template <class T>
 koz::VertexBuffer<T>::VertexBuffer(CComPtr<ID3D11Device> pDevice, T * pVertex, unsigned int Size)
 {
 	ID3D11Buffer *pVertexBuffer = nullptr;
@@ -33,22 +34,25 @@ koz::VertexBuffer<T>::VertexBuffer(CComPtr<ID3D11Device> pDevice, T * pVertex, u
 	m_VertexBuffer.Attach(pVertexBuffer);
 }
 
-template <typename T>
+template <class T>
 koz::VertexBuffer<T>::~VertexBuffer()
 {
 
 }
 
-template <typename T>
+template <class T>
 void koz::VertexBuffer<T>::Update(CComPtr<ID3D11DeviceContext> pDeviceContext, T * pVertexBuffer)
 {
 	pDeviceContext->UpdateSubresource(this->m_VertexBuffer, 0, nullptr, &pVertexBuffer, 0, 0);
 }
 
-template <typename T>
+template <class T>
 void koz::VertexBuffer<T>::Set(CComPtr<ID3D11DeviceContext> pDeviceContext)
 {
 	UINT stride = sizeof(T);
 	UINT offset = 0;
 	pDeviceContext->IASetVertexBuffers(0, 1, &this->m_VertexBuffer, &stride, &offset);
 }
+
+// ƒŠƒ“ƒN—p’è‹`
+template class koz::VertexBuffer < koz::DynamicVertex > ;

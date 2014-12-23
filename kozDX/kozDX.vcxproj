@@ -88,6 +88,7 @@
     <ClInclude Include="ConstantBuffer.h" />
     <ClInclude Include="DDSTextureLoader.h" />
     <ClInclude Include="DepthStencilState.h" />
+    <ClInclude Include="Description.h" />
     <ClInclude Include="DynamicModel.h" />
     <ClInclude Include="DynamicObject.h" />
     <ClInclude Include="FbxLoader.h" />

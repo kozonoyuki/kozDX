@@ -12,17 +12,6 @@
 namespace koz
 {
 	/**
-	* @brief 静的コンスタントバッファ構造体
-	*/
-	struct DescStatic
-	{
-	public:
-		DirectX::XMMATRIX Position;
-		DirectX::XMMATRIX Rotation;
-		DirectX::XMMATRIX Scale;
-	};
-
-	/**
 	* @brief 静的オブジェクトクラス<br>
 	*        静的に動作するオブジェクトに必要なものを定義
 	*/

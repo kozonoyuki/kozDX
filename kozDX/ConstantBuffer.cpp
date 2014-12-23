@@ -7,11 +7,12 @@
 
 #include "stdafx.h"
 #include "ConstantBuffer.h"
+#include "Description.h"
 
-template <typename T>
+template <class T>
 koz::ConstantBuffer<T>::ConstantBuffer() { }
 
-template <typename T>
+template <class T>
 koz::ConstantBuffer<T>::ConstantBuffer(CComPtr<ID3D11Device> pDevice)
 {
 	ID3D11Buffer *pConstantBuffer = nullptr;
@@ -28,23 +29,29 @@ koz::ConstantBuffer<T>::ConstantBuffer(CComPtr<ID3D11Device> pDevice)
 	m_ConstantBuffer.Attach(pConstantBuffer);
 }
 
-template <typename T>
+template <class T>
 koz::ConstantBuffer<T>::~ConstantBuffer() { }
 
-template <typename T>
+template <class T>
 void koz::ConstantBuffer<T>::Update(CComPtr<ID3D11DeviceContext> pDeviceContext, T * pConstantBuffer)
 {
 	pDeviceContext->UpdateSubresource(m_ConstantBuffer, 0, nullptr, &pConstantBuffer, 0, 0);
 }
 
-template <typename T>
+template <class T>
 void koz::ConstantBuffer<T>::SetVertexShader(CComPtr<ID3D11DeviceContext> pDeviceContext, UINT Slot)
 {
 	pDeviceContext->VSSetConstantBuffers(Slot, 1, &m_ConstantBuffer);
 }
 
-template <typename T>
+template <class T>
 void koz::ConstantBuffer<T>::SetPixelShader(CComPtr<ID3D11DeviceContext> pDeviceContext, UINT Slot)
 {
 	pDeviceContext->PSSetConstantBuffers(Slot, 1, &m_ConstantBuffer);
 }
+
+// ƒŠƒ“ƒN—p’è‹`
+template class koz::ConstantBuffer < koz::DescWVP > ;
+template class koz::ConstantBuffer < koz::DescDynamic > ;
+template class koz::ConstantBuffer < koz::DescAnimation > ;
+template class koz::ConstantBuffer < koz::DescStatic > ;

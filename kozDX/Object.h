@@ -9,20 +9,10 @@
 
 #include "stdafx.h"
 #include "ConstantBuffer.h"
+#include "Description.h"
 
 namespace koz
 {
-	/**
-	* @brief WVPコンスタントバッファの用構造体
-	*/
-	struct DescWVP
-	{
-	public:
-		DirectX::XMMATRIX World;
-		DirectX::XMMATRIX View;
-		DirectX::XMMATRIX Projection;
-	};
-
 	/**
 	* @brief オブジェクトを構成する抽象クラス<br>
 	*        オブジェクト描画に最低限必要なメンバ・メソッドを定義する

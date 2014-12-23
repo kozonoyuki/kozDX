@@ -13,20 +13,11 @@
 #include "IndexBuffer.h"
 #include "Texture.h"
 #include "SamplerState.h"
+#include "Description.h"
 
 namespace koz
 {
-	/**
-	* 頂点構造体
-	*/
-	struct DynamicVertex
-	{
-		DirectX::XMFLOAT3 Pos;
-		DirectX::XMFLOAT2 Tex;
-		DirectX::XMFLOAT3 Norm;
-		uint32_t boneIndex[4];
-		DirectX::XMFLOAT4 boneWeight;
-	};
+	
 
 	/**
 	* @brief 動的モデルクラス
@@ -60,7 +51,7 @@ namespace koz
 			void Set(CComPtr<ID3D11DeviceContext> pDeviceContext);
 		};
 
-	private:
+	private: 
 		FBXLoader* m_FbxLoader;
 		unsigned int m_MeshSize;
 		std::vector<std::shared_ptr<DynamicMesh>> m_MeshList;
