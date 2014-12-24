@@ -94,6 +94,7 @@
     <ClInclude Include="FbxLoader.h" />
     <ClInclude Include="IndexBuffer.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="Pipeline.h" />
     <ClInclude Include="PixelShader.h" />
     <ClInclude Include="RasterizerState.h" />
     <ClInclude Include="SamplerState.h" />
@@ -113,6 +114,7 @@
     <ClCompile Include="DynamicModel.cpp" />
     <ClCompile Include="FbxLoader.cpp" />
     <ClCompile Include="IndexBuffer.cpp" />
+    <ClCompile Include="Pipeline.cpp" />
     <ClCompile Include="PixelShader.cpp" />
     <ClCompile Include="RasterizerState.cpp" />
     <ClCompile Include="SamplerState.cpp" />
