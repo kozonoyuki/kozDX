@@ -8,3 +8,12 @@
 #include "stdafx.h"
 #include "Pipeline.h"
 
+koz::Pipeline::Pipeline()
+{
+
+}
+
+koz::Pipeline::~Pipeline()
+{
+
+}

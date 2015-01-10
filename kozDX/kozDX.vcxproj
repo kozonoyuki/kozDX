@@ -88,6 +88,7 @@
     <ClInclude Include="ConstantBuffer.h" />
     <ClInclude Include="DDSTextureLoader.h" />
     <ClInclude Include="DepthStencilState.h" />
+    <ClInclude Include="DepthStencilTexture.h" />
     <ClInclude Include="Description.h" />
     <ClInclude Include="DynamicModel.h" />
     <ClInclude Include="DynamicObject.h" />
@@ -111,6 +112,7 @@
     <ClCompile Include="ConstantBuffer.cpp" />
     <ClCompile Include="DDSTextureLoader.cpp" />
     <ClCompile Include="DepthStencilState.cpp" />
+    <ClCompile Include="DepthStencilTexture.cpp" />
     <ClCompile Include="DynamicModel.cpp" />
     <ClCompile Include="FbxLoader.cpp" />
     <ClCompile Include="IndexBuffer.cpp" />
