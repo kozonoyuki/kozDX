@@ -9,12 +9,16 @@
 
 #define WIN32_LEAN_AND_MEAN             // Windows ヘッダーから使用されていない部分を除外します。
 
-
-
 // TODO: プログラムに必要な追加ヘッダーをここで参照してください。
 #include <d3d11_1.h>
 #include <atlbase.h>
 #include <d3dcompiler.h>
 #include <string>
 #include <memory>
+#include <vector>
+#include <map>
+#include <algorithm>
+#include <stdio.h>
+#include <iostream>
 #include <DirectXMath.h>
+#include <fbxsdk.h>

@@ -6,7 +6,6 @@
 */
 
 #pragma once
-
 #include "DynamicObject.h"
 #include "FbxLoader.h"
 #include "VertexBuffer.h"
@@ -17,8 +16,6 @@
 
 namespace koz
 {
-	
-
 	/**
 	* @brief 動的モデルクラス
 	*/

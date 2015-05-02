@@ -6,6 +6,7 @@
 */
 
 #include "stdafx.h"
+#include "DynamicModel.h"
 #include "Pipeline.h"
 
 koz::Pipeline::Pipeline()

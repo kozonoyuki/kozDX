@@ -12,14 +12,6 @@
 
 #pragma once
 
-#include <iostream>
-#include <fbxsdk.h>
-#include <vector>
-#include <map>
-#include <algorithm>
-
-#include <stdio.h>
-
 struct ModelBoneWeight
 {
 	ModelBoneWeight() {};

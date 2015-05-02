@@ -7,6 +7,7 @@
 
 #include "stdafx.h"
 #include "PixelShader.h"
+#include "Utility.h"
 
 koz::PixelShader::PixelShader()
 {
