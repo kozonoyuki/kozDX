@@ -7,6 +7,7 @@
 
 #include "stdafx.h"
 #include "SamplerState.h"
+#include "Utility.h"
 
 koz::SamplerState::SamplerState()
 {

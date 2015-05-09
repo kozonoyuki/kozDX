@@ -7,6 +7,7 @@
 
 #include "stdafx.h"
 #include "VertexShader.h"
+#include "Utility.h"
 
 koz::VertexShader::VertexShader()
 {

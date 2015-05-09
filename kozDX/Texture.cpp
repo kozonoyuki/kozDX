@@ -7,6 +7,8 @@
 
 #include "stdafx.h"
 #include "Texture.h"
+#include "Utility.h"
+#include "DDSTextureLoader.h"
 
 koz::Texture::Texture()
 {

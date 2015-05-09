@@ -7,9 +7,6 @@
 
 #pragma once
 
-#include "Utility.h"
-#include "DDSTextureLoader.h"
-
 namespace koz
 {
 	/**
